@@ -24,7 +24,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 #define DYNAMIC_KEYMAP_LAYER_COUNT 10
-//#define TAPPING_TERM 180
+#define DYNAMIC_KEYMAP_MACRO_COUNT 32
 
 
 
@@ -41,17 +41,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MOUSEKEY_MAX_SPEED          3
 #undef MOUSEKEY_TIME_TO_MAX
 #define MOUSEKEY_TIME_TO_MAX        30
-#undef MOUSEKEY_WHEEL_DELAY
-#define MOUSEKEY_WHEEL_DELAY        0
-#undef MOUSEKEY_WHEEL_DELTA
-#define MOUSEKEY_WHEEL_DELTA        20
-#undef MOUSEKEY_WHEEL_MAX_SPEED 
-#define MOUSEKEY_WHEEL_MAX_SPEED    2
-#undef MOUSEKEY_WHEEL_TIME_TO_MAX
-#define MOUSEKEY_WHEEL_TIME_TO_MAX  30
 
-
-//#define USE_MATRIX_I2C
+//#define USE_MATRIX_I2C100
 #ifdef KEYBOARD_crkbd_rev1_legacy
 #    undef USE_I2C
 #    define USE_SERIAL
