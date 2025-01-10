@@ -18,14 +18,25 @@ jobs:
       - name: Configure Git
         run: git config --global --add safe.directory $(pwd)
 
+      - name: Cache QMK build
+        uses: actions/cache@v3
+        with:
+          path: |
+            .build
+            *.hex
+            *.bin
+            *.uf2
+          key: ${{ runner.os }}-qmk-${{ hashFiles('keyboards/crkbd/keymaps/nodzba/**/*') }}
+          restore-keys: |
+            ${{ runner.os }}-qmk-
+
       - name: Build firmware
         run: qmk compile -kb crkbd -km nodzba
 
-      - name: Upload firmware artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: firmware
-          path: ./.build/crkbd_rev1_nodzba.uf2
+      - name: Generate release tag
+        id: tag
+        run: |
+          echo "::set-output name=release_tag::release_$(date +"%Y.%m.%d_%H-%M")"
 
       - name: Create Release
         id: create_release
@@ -33,8 +44,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: release-${{ github.sha }}
-          release_name: Release ${{ github.sha }}
+          tag_name: ${{ steps.tag.outputs.release_tag }}
+          release_name: Firmware Release ${{ steps.tag.outputs.release_tag }}
           draft: false
           prerelease: false
 
