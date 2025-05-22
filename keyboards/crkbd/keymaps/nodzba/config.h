@@ -24,7 +24,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 #define DYNAMIC_KEYMAP_LAYER_COUNT 10
-#define DYNAMIC_KEYMAP_MACRO_COUNT 32
+#define DYNAMIC_KEYMAP_MACRO_COUNT 64
 
 
 
@@ -62,7 +62,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     #define RGB_MATRIX_HUE_STEP 10
     #define RGB_MATRIX_SAT_STEP 17
     #define RGB_MATRIX_VAL_STEP 17
-    
+
     #define ENABLE_RGB_MATRIX_NONE
     #define ENABLE_RGB_MATRIX_SOLID_COLOR
     #define ENABLE_RGB_MATRIX_ALPHAS_MODS
@@ -126,7 +126,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     #define RGBLIGHT_HUE_STEP 10
     #define RGBLIGHT_SAT_STEP 17
     #define RGBLIGHT_VAL_STEP 17
-    
+
     #define RGBLIGHT_EFFECT_BREATHING
     #define RGBLIGHT_EFFECT_RAINBOW_MOOD
     #define RGBLIGHT_EFFECT_RAINBOW_SWIRL
